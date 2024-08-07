@@ -64,6 +64,7 @@ class Arguments:
     
 class Utils:
 
+    @staticmethod
     def _fileExists(filepath) -> bool:
 
         return bool(os.path.isfile(filepath))
@@ -77,27 +78,27 @@ class Crack:
         with open(self.config.file, "rb") as certfile:
             self.certp12 = certfile.read()
 
-        self.brute_force_p12(
+        self._bruteForce(
             wordlist_path=self.config.wordlist,
             num_threads=self.config.threads
         )
 
-    def load_pkcs12(self, password):
+    def _load(self, password):
 
         print(f"[Info] Testing password: {password}")
         try:return pkcs12.load_key_and_certificates(self.certp12, password.encode())
         except Exception:return None
 
-    def worker(self, passwords, found_event, thread_id):
+    def _worker(self, passwords, found_event, thread_id):
         
         for password in passwords:
             
             if found_event.is_set():return
-            if self.load_pkcs12(password):
+            if self._load(password):
                 print("="*40 + f'\n[Sucessful] [{thread_id}ºt] Password found: {password}')
                 found_event.set();return
 
-    def brute_force_p12(self, wordlist_path, num_threads):
+    def _bruteForce(self, wordlist_path, num_threads):
 
         threads = []
 
@@ -114,7 +115,7 @@ class Crack:
             thread_passwords = passwords[start_index:end_index]
 
             thread = threading.Thread(
-                target=self.worker, 
+                target=self._worker, 
                 args=(thread_passwords, found_event, i)
             )
 

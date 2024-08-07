@@ -1,10 +1,28 @@
-[Leer en Español](./ES.md)
+[Leer en Español](./docs/ES.md)
+
+<div style="text-align: center;">
 
 # FNMT Crack
+
+![GitHub top language](https://img.shields.io/github/languages/top/cpadlab/fnmtCrack)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/cpadlab/fnmtCrack)
+![GitHub License](https://img.shields.io/github/license/cpadlab/fnmtCrack)
+![GitHub Repo stars](https://img.shields.io/github/stars/cpadlab/fnmtCrack)
+
+</div>
 
 FNMT Crack is a **tool designed to recover the password of a natural person's FNMT** (Fábrica Nacional de Moneda y Timbre) digital certificate by means of a brute force attack. *This software is intended for legal purposes only and should be used only by the owner of the digital certificate.*
 
 **Author**: Carlos Padilla (cpadlab)
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Install](#install)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Legal Notice](#legal-notice)
+- [License](#license)
 
 ## Description
 
@@ -18,7 +36,7 @@ Python Modules: `argparse`, `cryptography`
 pip install -r requirements.txt
 ```
 
-## Instalación
+## Install
 
 ```
 git clone https://github.com/cpadlab/fnmtCrack.git
@@ -27,17 +45,24 @@ cd fnmtCrack && pip installRead in English -r requirements.txt
 
 ## Usage
 
-To run the tool, you need to provide the path to the PKCS#12 file and a list of passwords. Optionally, you can specify the number of threads to use. Example of execution:
+To run the tool, you need to provide the path to the PKCS#12 file and a list of passwords. Optionally, you can specify the number of threads to use. Example of execution with python:
 
 ```
 python fnmtcrack.py -f path/to/certificate.p12 -w path/to/wordlist.txt -t 4
 ```
 
+You can download the binary from Release 1.0 or you can run it directly from the repository. Example of execution with executable:
+
+```
+./dist/fnmtcrack -f path/to/certificate.p12 -w path/to/wordlist.txt -t 4
+```
+
 ### Parameters
 
-- -f o --file: Path to PKCS#12 file.
-- -w o --wordlist: Path to the password list file.
-- -t o --threads: Number of threads to be used (optional, default is 3).
+- `-f` o `--file`: Path to PKCS#12 file.
+- `-w` o `--wordlist`: Path to the password list file.
+- `-t` o `--threads`: Number of threads to be used (optional, default is 3).
+
 
 ## Legal Notice
 
@@ -46,6 +71,9 @@ This software should be used only for lawful purposes. The author is not respons
 ## Example of output
 
 ```
+┏┓┳┓┳┳┓┏┳┓  ┏┓┳┓┏┓┏┓┓┏┓
+┣ ┃┃┃┃┃ ┃   ┃ ┣┫┣┫┃ ┃┫   by cpadlab
+┻ ┛┗┛ ┗ ┻   ┗┛┛┗┛┗┗┛┛┗┛
 ========================================
 fnmtCrack       Carlos Padilla (cpadlab)
 ========================================
