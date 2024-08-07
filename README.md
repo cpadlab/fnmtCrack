@@ -51,7 +51,7 @@ To run the tool, you need to provide the path to the PKCS#12 file and a list of 
 python fnmtcrack.py -f path/to/certificate.p12 -w path/to/wordlist.txt -t 4
 ```
 
-You can download the binary from Release 1.0 or you can run it directly from the repository. Example of execution with executable:
+You can download the binary from [Release 1.0](https://github.com/cpadlab/fnmtCrack/releases/tag/1.0) or you can run it directly from the repository. Example of execution with executable:
 
 ```
 ./dist/fnmtcrack -f path/to/certificate.p12 -w path/to/wordlist.txt -t 4
